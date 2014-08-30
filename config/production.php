@@ -15,4 +15,5 @@ $app['enabledViews'] = array(
      'error',
      'home',
      'search',
+     'translate',
  );

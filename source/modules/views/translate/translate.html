@@ -1,0 +1,31 @@
+{% extends "views/_base-view/_base-view.html" %}
+
+
+{% block content %}
+    <h1 class="index-heading">{{ title }}</h1>
+    <section class="panel main-panel">
+		<h2>Translation</h2>
+		{{ translations | join(', ') }}
+	</section>
+	<form class="panel main-panel" method="get" action="{{ 'translate' }}">
+		<div>
+		    <label>
+		        Word
+		        <input type="text" name="word" value="{% if word is defined %}{{ word }}{% endif %}" placeholder"keyword">
+		    </label>
+		</div>
+		<div>
+		    <label>
+		        Source language
+		        <input type="text" name="sourceLang" value="{% if sourceLang is defined %}{{ sourceLang }}{% endif %}">
+		    </label>
+		</div>
+		<div>
+		    <label>
+		        Target language
+		        <input type="text" name="targetLang" value="{% if targetLang is defined %}{{ targetLang }}{% endif %}">
+		    </label>
+		</div>
+	    <input type="submit" value="translate">
+	</form>
+{% endblock %}
