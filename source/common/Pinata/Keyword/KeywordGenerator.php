@@ -15,30 +15,23 @@ class KeywordGenerator {
     
     public function GenerateKeywords ($content)
     {
-        var_dump($_ENV['PATH']);
-        $file = \tempnam($this->cacheDir, "keyword");
+        $file = \tempnam(sys_get_temp_dir(), "keyword");
         \file_put_contents($file, $content);
         $filePlain = $file.".plain";
-        $command = sprintf("pandoc --from html --to plain %s -o %s", $file, $filePlain);
-        echo $command . "<br>";
-        //shell_exec($command);
-        $process = new Process($command);
+        
+        $process = new Process(sprintf("pandoc --from html --to plain %s -o %s", $file, $filePlain) );
         $process->run();
         unlink($file);
         
         
         // this is where it gets reaaal pretty.
-        $command = sprintf("java -jar %s %s", $this->appFile, $filePlain);
-        echo $command . "<br>";
-        $output = shell_exec($command);
-        //$process = new Process($command);
-        //$process->run();
-        echo 'output:' . $output;
+        $process = new Process(sprintf("java -jar %s %s", $this->appFile, $filePlain));
+        $process->run();
         
-        $stuff = $output; //$process->getOutput();
+        $stuff = $process->getOutput();
         $stuff = str_replace("'","\"", $stuff);
         
-        //unlink($filePlain);
+        unlink($filePlain);
         
         return json_decode($stuff, true);
     }
