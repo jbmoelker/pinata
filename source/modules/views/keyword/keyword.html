@@ -8,9 +8,10 @@
         </ul>
 </li>
 <li><h2 class="tab-head">Keywords</h2>
-    <ul>
+    <dl>
     {% for hit in output.keywords|slice(0,10) %}
-    <li><a href="{{ path('search', { query: hit.stem}) }}">{{ hit.terms|first }}</a> ({{ hit.frequency }})</li>
+    <dt><a href="{{ path('search', { query: hit.stem}) }}">{{ hit.term }}</a> ({{ hit.frequency }})</dt>
+    <dd>{{ hit.translation|slice(0,3)|join(", ") }}</dd>
     {% endfor %}        
     </ul>
 </li>

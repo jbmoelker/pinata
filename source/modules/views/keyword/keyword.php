@@ -4,6 +4,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Voorhoede\Wiki\Search\SearchQuery;
 use \Pinata\Keyword\KeywordGenerator;
+use Linguistadores\Pinata\Translator\Translator;
 
 
 $app->get('/keyword', function (Request $request) use ($app) {
@@ -23,12 +24,27 @@ $app->get('/keyword', function (Request $request) use ($app) {
    $keywords = $generator->GenerateKeywords($content);
    $limit = 10;
    $i = 0;
+   
+   $keywordsTranslated = [];
+   $translator = new Translator("en", "nl");
+   
+   
    foreach ($keywords as $keyWord) {
        $stems[] = $keyWord["stem"]."^".$keyWord["frequency"];
+       $term = $keyWord["terms"][0];
+       $wordWithTranslation = array(
+           "term" => $term,
+           "translation" => $translator->translate($term),
+          "frequency" => $keyWord["frequency"],
+           "stem" => $keyWord["stem"]
+       );
+       $keywordsTranslated[] = $wordWithTranslation;
        if ($i++ >= $limit)
        {
            break;
        }
+       
+       
    } 
    
    $searchString = join(" ", $stems);
@@ -52,7 +68,7 @@ $app->get('/keyword', function (Request $request) use ($app) {
         //"keywords" => $keywords,
         "search_string" => $searchString,
         "related"  => $related,
-        "keywords" => $keywords
+        "keywords" => $keywordsTranslated
     );
     if ($request->get('format',"html") == "json")
     {
