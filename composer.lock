@@ -4,11 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "hash": "a1c8b683a1597bea8c137128520a9cb0",
-=======
-    "hash": "601d923b0f01d2d7423bc1c17033a8bc",
->>>>>>> 226c621cb3e2d5e56d15b42d224ea73e246ce9ac
     "packages": [
         {
             "name": "bojaspus/zendsearch",

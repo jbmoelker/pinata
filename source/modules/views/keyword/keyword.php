@@ -46,10 +46,12 @@ $app->get('/keyword', function (Request $request) use ($app) {
     }
    
     
-    echo $searchString;
+    
     $output = array(
         //"keywords" => $keywords,
-        "related"  => $related
+        "search_string" => $searchString,
+        "related"  => $related,
+        "keywords" => $keywords
     );
     
    return new Response(json_encode($output));

@@ -17,7 +17,6 @@
         "symfony/filesystem": "2.4.*@dev",
         "symfony/finder": "~2.3",
         "symfony/monolog-bridge": "~2.3",
-<<<<<<< HEAD
         "symfony/yaml": "2.4.*@dev",
         "tecnick.com/tcpdf": "dev-master",
         "curl/curl": "1.1.5",
@@ -26,18 +25,6 @@
     "autoload": {
         "psr-0": {
             "": "source/common/"
-=======
-	    "symfony/yaml": "2.4.*@dev",
-	    "tecnick.com/tcpdf": "dev-master",
-          "curl/curl": "1.1.5",
-        "php-curl-class/php-curl-class": "2.1.0"
-    },
-    "autoload": {
-        "psr-0": {
-	        "": "source/",
-	        "Voorhoede\\Wiki\\": "source/common/",
-            "Linguistadores\\Pinata\\": "source/common/"
->>>>>>> 226c621cb3e2d5e56d15b42d224ea73e246ce9ac
         }
     }
 }
