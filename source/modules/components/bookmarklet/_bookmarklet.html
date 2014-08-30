@@ -1,15 +1,16 @@
 <a href="javascript:(function(doc){
             window.pinata = function(response) {
-                console.log('response', response);
+                var panel = doc.createElement('DIV');
+                panel.innerHTML = response.html;
+                doc.body.appendChild(panel);
             };
             var article = doc.getElementsByTagName('article')[0]
-                || doc.querySelector('.article')
-                || doc.body;
+                    || doc.querySelector('.article')
+                    || doc.body;
             var html = article.innerHTML;
             var jsCode = doc.createElement('script');
-            jsCode.setAttribute('src', '{{ path("searchapi", { query: " " }) }}');
+            jsCode.setAttribute('src', 'http://pinata.idlabs.nl/keyword?url=http://gizmodo.com&callback=pinata');
             doc.body.appendChild(jsCode);
-            console.log('article', html);
         }(document));"  class="bookmarklet" title="drop me onto your bookmarks bar">
     Pi&ntilde;ata
 </a>
