@@ -18,6 +18,7 @@ header .tags {
 
 body {
 	font-size: 1em;
+	background-color: rgb(239, 240, 244);
 }
 
 article {
@@ -113,5 +114,25 @@ ul {
 }
 .search-bar input[type="search"] {
 	width: 60%;
+}
+
+.section-header {
+	width: 960px;
+	margin: 0 auto;
+}
+.section-title {
+	font-size: 5em;
+	margin: 1em;
+	text-align: center;
+	color: #acdb2b;
+}
+
+.bookmarklet {
+	float: right;
+	margin: 1em;
+	padding: .5em;
+	background: #798386;
+	color: white;
+	font-weight: bold;
 }
 

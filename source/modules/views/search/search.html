@@ -10,7 +10,7 @@
 {% block content %}
     <h1 class="index-heading">{{ title }}</h1>
 
-        {% for hit in hits %}
+    {% for hit in hits %}
         <li><a href="{{hit.url}}">{{ hit.title }}</a></li>
     {% endfor %}
 {% endblock %}

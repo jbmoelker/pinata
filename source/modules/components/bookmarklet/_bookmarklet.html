@@ -1,0 +1,15 @@
+<a href="javascript:(function(doc){
+            window.pinata = function(response) {
+                console.log('response', response);
+            };
+            var article = doc.getElementsByTagName('article')[0]
+                || doc.querySelector('.article')
+                || doc.body;
+            var html = article.innerHTML;
+            var jsCode = doc.createElement('script');
+            jsCode.setAttribute('src', '{{ path("searchapi", { query: " " }) }}');
+            doc.body.appendChild(jsCode);
+            console.log('article', html);
+        }(document));"  class="bookmarklet" title="drop me onto your bookmarks bar">
+    Pi&ntilde;ata
+</a>

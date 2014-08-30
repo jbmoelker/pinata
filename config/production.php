@@ -17,5 +17,9 @@ $app['enabledViews'] = array(
      'error',
      'home',
      'search',
+<<<<<<< HEAD
      'keyword'
+=======
+     'translate',
+>>>>>>> 226c621cb3e2d5e56d15b42d224ea73e246ce9ac
  );
