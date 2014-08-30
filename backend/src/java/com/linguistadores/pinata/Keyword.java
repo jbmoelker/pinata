@@ -103,10 +103,10 @@ public class Keyword implements Comparable<Keyword> {
     	String terms = "";
     	String separator = "";
     	for (String term : this.terms) {
-			terms = String.format("%s%s%s", terms, separator, term);
+			terms = String.format("%s%s\"%s\"", terms, separator, term);
 			separator = ",";
 		}
-    	return String.format("{\"stem\":\"%s\",\"terms\":\"[%s]\",\"frequency\":%d}", stem, terms, frequency);
+    	return String.format("{\"stem\":\"%s\",\"terms\":[%s],\"frequency\":%d}", stem, terms, frequency);
     }
 
 }
