@@ -1,4 +1,7 @@
 <style>
+    .pinata-heading {
+        color: white;
+    }
     .pinata-link {
         color: rgb(172, 219, 43);
     }
@@ -12,6 +15,7 @@
     }
     .pinata-panel {
         position: absolute;
+        top: 0;
         right: 0;
         width: 20%;
         min-width: 20em;
@@ -24,16 +28,18 @@
     }
 </style>
 <aside class="pinata-panel">
-    <h1>Pinata</h1>
+    <h1 class="pinata-heading">Pinata</h1>
     <ul class="pinata-list">
-        <li class="pinata-item"><h2 class="tab-head">Related articles</h2>
+        <li class="pinata-item">
+            <h2 class="pinata-heading">Related articles</h2>
             <ul class="pinata-list">
                 {% for hit in output.related|slice(0,10) %}
                 <li class="pinata-item"><a class="pinata-link" href="{{hit.url}}">{{ hit.title }}</a> ({{hit.score}})</li>
                 {% endfor %}
             </ul>
         </li>
-        <li class="pinata-item"><h2 class="tab-head">Keywords</h2>
+        <li class="pinata-item">
+            <h2 class="pinata-heading">Keywords</h2>
             <dl>
                 {% for hit in output.keywords|slice(0,10) %}
                 <dt><a  class="pinata-link" href="{{ path('search', { query: hit.stem}) }}">{{ hit.term }}</a> ({{ hit.frequency }})</dt>
