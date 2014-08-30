@@ -100,7 +100,13 @@ public class Keyword implements Comparable<Keyword> {
      */
     @Override
     public String toString() {
-    	return String.format("{'stem':'%s','frequency':%d}", stem, frequency);
+    	String terms = "";
+    	String separator = "";
+    	for (String term : this.terms) {
+			terms = String.format("%s%s%s", terms, separator, term);
+			separator = ",";
+		}
+    	return String.format("{\"stem\":\"%s\",\"terms\":\"[%s]\",\"frequency\":%d}", stem, terms, frequency);
     }
 
 }
