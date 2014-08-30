@@ -1,0 +1,6 @@
+<a class="panel main-panel" href="{{ path('article', {'name': article.name}) }}">
+    <article itemscope itemtype="http://schema.org/TechArticle">
+        <h2 itemprop="name">{{ article.meta.title }}</h2>
+        <p itemprop="description">{{ article.meta.description }}</p>
+    </article>
+</a>

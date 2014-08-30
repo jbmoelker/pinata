@@ -1,0 +1,22 @@
+{% extends "views/_base-view/_base-view.html" %}
+
+{% block meta %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    {{ parent() }}
+    <meta property="og:type" content="website">
+{% endblock %}
+
+{% block content %}
+	<h1 class="index-heading">{{ titleTopics }}</h1>
+
+	{% for article in articles %}
+		{% include "components/topics-overview/_topics-overview.html" %}
+	{% endfor %}
+
+    <h1 class="index-heading">{{ title }}</h1>
+
+    {% for article in articles %}
+        {% include "components/article-preview/_article-preview.html" %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js"
+      xmlns:og="http://opengraphprotocol.org/schema/">
+<head>
+	<meta charset="utf-8" />
+
+	<title>{% if title %}{{ title }} | {% endif %} {{ projectTitle }}</title>
+
+    {% block meta %}
+    <meta name="publisher" content="De Voorhoede">
+    <meta name="generator" content="Silex, Twig, PHP Markdown Extra">
+    {#<meta name="robots" content="index,follow">#}
+    <meta property="og:site_name" content="{{ projectTitle }}">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta property="og:title" content="{{ title }}">
+    {% endblock %}
+
+	<link rel="stylesheet" href="/assets/styles/base.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/styles/wiki.css" type="text/css" />
+
+    <!-- search auto discovery (http://www.opensearch.org/Specifications/OpenSearch/1.1#Autodiscovery_in_HTML.2FXHTML): -->
+    <link rel="search" type="application/opensearchdescription+xml"
+          href="{{ url('open-search-desc') }}"
+          title="Search articles on {{ projectTitle }}" />
+</head>
+<body>
+	<div class="page">
+
+        {% block siteHeader %}
+		{% include "components/site-header/_site-header.html" %}
+        {% endblock %}
+
+        {% block pageHeader %}
+		<header class="section-header js-section-header" data-content="wiki">
+			<h2 class="section-title" data-content="wiki">WIKI</h2>
+		</header>
+        {% endblock %}
+
+		<main id="main" class="page-content">
+            {% include "components/search-bar/_search-bar.html" %}
+            {% block content %}main content{% endblock %}
+		</main>
+
+        {% block siteFooter %}
+        {% include "components/site-footer/_site-footer.html" %}
+        {% endblock %}
+
+		{% include "components/site-background/_site-background.html" %}
+	</div>
+</body>
+</html>

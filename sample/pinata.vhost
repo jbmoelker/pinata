@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+	ServerName pinata.local.dev
+	DocumentRoot "/var/projects/pinata/web"
+    <Directory   "/var/projects/pinata/web">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Order allow,deny
+		Allow from all
+
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteRule . index.php [L]
+   </Directory>
+</VirtualHost>

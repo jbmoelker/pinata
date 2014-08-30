@@ -1,0 +1,50 @@
+<dl>
+
+    {#
+	{% if article.image is defined %}
+		<dt>image</dt>
+		<dd><img itemprop="image" src="{{ article.image }}" alt="{{ article.title }}" /></dd>
+	{% endif %}
+
+    {% if article.description %}
+        <dt>description</dt>
+        <dd itemprop="description">{{ article.description }}</dd>
+    {% endif %}
+    #}
+
+    {% if article.tags %}
+    <dt>tags</dt>
+    <dd>
+    {% for tag in article.tags %}
+        <a href="{{ path('tag', {'tag': tag | url_encode }) }}">
+            #<span itemprop="keywords">{{ tag }}</span>
+        </a>
+    {% endfor %}
+    </dd>
+    {% endif %}
+
+    {% if article.authors %}
+        <dt>{% if article.authors | length == 1 %}author{% else %}authors{% endif %}</dt>
+        <dd>
+        {% for author in article.authors %}
+            <a itemprop="author" href="{{ path('author', {'author': author | url_encode }) }}">
+                {% if loop.first %}
+                <span itemprop="author">{{ author }}</span>
+                {% else %}
+                <span itemprop="contributor">{{ author }}</span>
+                {% endif %}
+            </a>
+        {% endfor %}
+        </dd>
+    {% endif %}
+
+    {% if article.dateUpdated %}
+        <dt>last modified</dt>
+        <dd>
+            <a href="{{ projectRepository }}history-node/master/source/content/{{ article.name }}.md">
+                <time itemprop="dateModified" datetime="{{ article.dateUpdated }}">{{ article.dateUpdated }}</time>
+            </a>
+        </dd>
+    {% endif %}
+
+</dl>

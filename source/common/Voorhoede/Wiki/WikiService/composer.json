@@ -1,0 +1,20 @@
+{
+    "name": "voorhoede/wiki-service",
+    "description": "Wiki service bundles article, search & export.",
+    "license": "MIT",
+    "type": "library",
+	"homepage": "http://www.voorhoede.nl",
+	"authors": [
+		{
+			"name": "Jasper Moelker",
+			"email": "jasper@voorhoede.nl"
+		}
+	],
+    "require": {
+	    "voorhoede/wiki-article": "dev-master",
+	    "voorhoede/wiki-search": "dev-master"
+    },
+	"autoload": {
+		"psr-0": { "Voorhoede\\Wiki\\WikiService\\": "" }
+	}
+}

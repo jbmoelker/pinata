@@ -1,0 +1,16 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>{{ projectTitle }}</ShortName>
+	<Description>Search articles on {{ projectTitle }}</Description>
+	<Language>en</Language>
+	<SyndicationRight>open</SyndicationRight>
+	<AdultContent>false</AdultContent>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Image height="32" width="32" type="image/x-icon">http://www.voorhoede.nl/favicon.ico</Image>
+	<Image height="57" width="57" type="image/png">http://www.voorhoede.nl/apple-touch-icon.png</Image>
+	<Url type="text/html" method="get" template="{{ url('search') }}?query={searchTerms}"/>
+	<moz:SearchForm>{{ url('search') }}</moz:SearchForm>
+	<Developer>
+		Jasper Moelker (japer@voorhoede.nl), De Voorhoede (www.voorhoede.nl)
+	</Developer>
+</OpenSearchDescription>

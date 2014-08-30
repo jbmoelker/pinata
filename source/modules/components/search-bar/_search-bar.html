@@ -1,0 +1,6 @@
+<form class="search-bar" method="get" action="{{  path('search') }}">
+    <input name="query" type="search" placeholder="Search articles..."
+        autofocus
+        value="{% if query is defined %}{{ query }}{% endif %}">
+    <button>search</button>
+</form>

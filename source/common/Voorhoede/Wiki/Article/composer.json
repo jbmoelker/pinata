@@ -1,0 +1,22 @@
+{
+    "name": "voorhoede/wiki-article",
+    "description": "Wiki article model to generate html and meta from markdown content.",
+    "license": "MIT",
+    "type": "library",
+	"homepage": "http://www.voorhoede.nl",
+	"authors": [
+		{
+			"name": "Jasper Moelker",
+			"email": "jasper@voorhoede.nl"
+		}
+	],
+    "require": {
+	    "michelf/php-markdown": "1.4.*@dev",
+	    "symfony/css-selector": "2.5.*@dev",
+	    "symfony/dom-crawler": "2.4.*@dev",
+	    "symfony/yaml": "2.4.*@dev"
+    },
+	"autoload": {
+		"psr-0": { "Voorhoede\\Wiki\\Article\\": "" }
+	}
+}

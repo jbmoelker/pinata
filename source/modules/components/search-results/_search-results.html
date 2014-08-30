@@ -1,0 +1,23 @@
+<article class="item illustrated-item text-container {{ loop.index is even ? 'even' : 'odd' }}" itemscope itemtype="http://schema.org/TechArticle">
+	<a href="{{ path('article', {'name': article.name}) }}">
+		{% if article.meta.image is defined %}
+		<div class="item-image">
+			<img itemprop="image" src="{{ article.meta.image }}" alt="{{ article.meta.title }}" />
+		</div>
+		{% endif %}
+		<div class="item-text">
+			<h2 itemprop="name">{{ article.meta.title }}</h2>
+			<p itemprop="description">{{ article.meta.description }}</p>
+		</div>
+	</a>
+
+	{% if article.meta.tags %}
+	<div class="item-text">
+		{% for tag in article.meta.tags %}
+		<a href="{{ path('tag', {'tag': tag | url_encode }) }}">
+			#<span itemprop="keyword">{{ tag }}</span>
+		</a>
+		{% endfor %}
+	</div>
+	{% endif %}
+</article>
