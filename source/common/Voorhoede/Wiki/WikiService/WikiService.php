@@ -96,7 +96,7 @@ class WikiService {
         $names = array();
         foreach($hits as $hit){
             $names[] = $hit->name;
-        }
+}
         return array(
             'hits'      => $hits,
         );

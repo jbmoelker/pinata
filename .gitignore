@@ -10,3 +10,44 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/nbproject/private/
+
+
+# Test reports
+test/coverage
+test/report
+
+# Compiled CSS files
+*.css
+!source/vendor/**/*.css
+!web/assets/styles/*.css
+
+# OS
+.DS_Store
+thumbs.db
+
+# Cache directories
+.bower
+.cache
+.sass-cache
+.scss-cache
+
+# Source maps
+# *.js.map
+*.css.map
+
+# Editor/IDE files
+*.iml
+*.ipr
+*.iws
+.idea
+*.sublime-workspace
+nb-configuration.xml
+nbactions.xml
+nbproject/private
+
+# Composer
+composer.phar
+
+# Node
+node_modules
