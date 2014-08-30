@@ -21,6 +21,7 @@ $app->get('/keyword', function (Request $request) use ($app) {
    $generator = new KeywordGenerator($app["cacheDir"], $app["javaApp"]);
    $stems = array();
    $keywords = $generator->GenerateKeywords($content);
+   //var_dump($keywords);exit;
    $limit = 10;
    $i = 0;
    foreach ($keywords as $keyWord) {
