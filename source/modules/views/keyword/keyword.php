@@ -21,7 +21,6 @@ $app->get('/keyword', function (Request $request) use ($app) {
    $generator = new KeywordGenerator($app["cacheDir"], $app["javaApp"]);
    $stems = array();
    $keywords = $generator->GenerateKeywords($content);
-   //var_dump($keywords);exit;
    $limit = 10;
    $i = 0;
    foreach ($keywords as $keyWord) {
@@ -41,7 +40,8 @@ $app->get('/keyword', function (Request $request) use ($app) {
     {
        $hitArray = array (
           "url" => $hit->url,
-          "title" => $hit->title
+          "title" => $hit->title,
+           "score" => round($hit->score*100). "%"
         );
         $related[] = $hitArray;
     }
@@ -54,8 +54,15 @@ $app->get('/keyword', function (Request $request) use ($app) {
         "related"  => $related,
         "keywords" => $keywords
     );
+    if ($request->get('format',"html") == "json")
+    {
+        return new Response(json_encode($output));
+    }
     
-   return new Response(json_encode($output));
+    return $app['twig']->render('views/keyword/keyword.html', array(
+        'output'  => $output,
+    ));
+
 })->bind('keyword');
 
 $app->get('/keyword/api/{query}', function (Request $request, $query) use ($app) {
