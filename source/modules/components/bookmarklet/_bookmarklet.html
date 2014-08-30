@@ -9,7 +9,7 @@
                     || doc.body;
             var html = article.innerHTML;
             var jsCode = doc.createElement('script');
-            jsCode.setAttribute('src', 'http://pinata.idlabs.nl/keyword?callback=pinata&content='+window.location);
+            jsCode.setAttribute('src', 'http://pinata.idlabs.nl/keyword?callback=pinata&url='+encodeURIComponent(window.location));
             doc.body.appendChild(jsCode);
         }(document));"  class="bookmarklet" title="drop me onto your bookmarks bar">
     Pi&ntilde;ata
