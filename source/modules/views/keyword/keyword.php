@@ -59,9 +59,20 @@ $app->get('/keyword', function (Request $request) use ($app) {
         return new Response(json_encode($output));
     }
     
-    return $app['twig']->render('views/keyword/keyword.html', array(
+    $html =  $app['twig']->render('views/keyword/keyword.html', array(
         'output'  => $output,
     ));
+    
+    if ($request->get("callback",false) !== false)
+    {
+        return new Response(
+                sprintf("%s(%s);",$request->get('callback'), json_encode(array("html" => $html))),
+                200,
+                array('Content-Type' => 'application/javascript')
+        );
+    }
+    
+    return new Response($html);
 
 })->bind('keyword');
 

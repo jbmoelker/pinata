@@ -10,7 +10,7 @@
 <li><h2 class="tab-head">Keywords</h2>
     <ul>
     {% for hit in output.keywords|slice(0,10) %}
-    <li><a href="{{ path('search', { query: hit.stem}) }}"> {{ hit.stem }}</a> ({{ hit.frequency }})</li>
+    <li><a href="{{ path('search', { query: hit.stem}) }}">{{ hit.terms|first }}</a> ({{ hit.frequency }})</li>
     {% endfor %}        
     </ul>
 </li>
