@@ -21,7 +21,7 @@ Note: Unless stated otherwise, all shell commands in the rest of this Readme ass
 
 #### PHP dependencies
 
-Voorhoede Wiki is written in PHP and therefore uses [composer](https://getcomposer.org/) for dependency management. Make sure you have composer installed (pro tip: [install globally](https://getcomposer.org/doc/00-intro.md#globally)):
+Project is written in PHP and therefore uses [composer](https://getcomposer.org/) for dependency management. Make sure you have composer installed (pro tip: [install globally](https://getcomposer.org/doc/00-intro.md#globally)):
 
 	$ curl -sS https://getcomposer.org/installer | php
 
